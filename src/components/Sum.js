@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react';
 
-function Sum() {
-    const [count1,setCount1]=useState(0)
-    const [count2,setCount2]=useState(0)
-    
-    const Input1 = (e)=>{
-        setCount1(Number(e.target.value))
-    }
-
-    const Input2 = (e)=>{
-        setCount2(Number(e.target.value))
-    }
-    const count=count1+count2
+function Sum({ count1, count2, onCount1Change, onCount2Change, add, sub, mul, divide }) {
   return (
     <div>
-      <input type="number" value={count1} onChange={Input1}></input>
-      <input type="number" value={count2} onChange={Input2}></input>
-      <h1>{count}</h1>
+      <input type="number" value={count1} onChange={onCount1Change} />
+      <input type="number" value={count2} onChange={onCount2Change} />
+      <br />
+      <button onClick={add}>Addition</button>
+      <button onClick={sub}>Subtraction</button>
+      <button onClick={mul}>Multiply</button>
+      <button onClick={divide}>Divide</button>
     </div>
-  )
+  );
 }
 
-export default Sum
+export default Sum;
